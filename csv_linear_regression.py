@@ -15,3 +15,22 @@ from sklearn.linear_model import LinearRegression
 model = LinearRegression()
 #Fitting the model to the training data
 model.fit(X_train, y_train)
+
+#Making predictions on the test data
+# y_prediction = model.predict(int(input("How many hours? ")), X_test)
+#print(y_prediction)
+
+y_prediction = model.predict(X_test)
+print(y_prediction)
+
+#predicting the score for a student who studies for a certain number of hours
+hours = float(input("How many hours studied? "))
+predicted_score = model.predict([[hours]])
+print("Predicted score:", predicted_score[0])
+
+#Checking the accuracy of the model
+from sklearn.metrics import mean_squared_error, r2_score
+mse = mean_squared_error(y_test, y_prediction)
+r2 = r2_score(y_test, y_prediction)
+print("Mean Squared Error:", mse)
+print("R-squared:", r2)
