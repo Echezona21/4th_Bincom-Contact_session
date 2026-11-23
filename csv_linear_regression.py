@@ -34,3 +34,14 @@ mse = mean_squared_error(y_test, y_prediction)
 r2 = r2_score(y_test, y_prediction)
 print("Mean Squared Error:", mse)
 print("R-squared:", r2)
+
+#Visualizing the results
+import matplotlib.pyplot as plt
+
+plt.scatter(X, y, color='blue')
+plt.plot(X, model.predict(X), color='red')
+plt.xlabel('Hours Studied')
+plt.ylabel('Scores')
+plt.title('Linear Regression: Hours Studied vs Scores')
+plt.show()
+
